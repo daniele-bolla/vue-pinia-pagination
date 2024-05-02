@@ -1,5 +1,5 @@
 <template>
-  <div
+  <section
     class="flex flex-col h-full"
   >
     <div v-if="getCurrentProducts && getCurrentProducts.length">
@@ -26,7 +26,7 @@
     <div v-else class="flex flex-col items-center justify-center h-full">
       ...Loading
     </div>
-  </div>
+  </section>
 
 </template>
 

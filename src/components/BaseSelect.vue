@@ -1,9 +1,10 @@
 <template>
-  <fieldset>
     <label :for="id">
       <select  
       :id="id" 
       class="p-4 text-black  hover:bg-grey-dark bg-grey"
+      :aria-label="labelText"
+      aria-describedby="desc"
       @change="handleChange"
       >
       <option
@@ -16,11 +17,10 @@
           {{ choice.label }}
         </option>    
       </select>
-      <span class="ml-4">Items per page</span>
+      <span class="ml-4">{{labelText}}</span>
+      <span id="desc" class=" sr-only">{{description || labelText}}</span>
 
     </label>
-
-  </fieldset>
 </template>
 
 <script lang="ts">
@@ -43,6 +43,10 @@ export default defineComponent({
     value: {
       type: [String, Object] as PropType<string | Choice>,
       default: () => undefined,
+    },
+    labelText: {
+      type: String,
+      default: "",
     },
     description: {
       type: String,

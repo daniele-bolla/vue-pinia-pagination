@@ -56,7 +56,13 @@
     >
       Next >
     </base-button> 
-    <base-select id="item_per_page" :choices="pageSizes" @change="onChangeSize" :value="pageSize.toString()"></base-select>
+    <base-select id="item_per_page" 
+      :choices="pageSizes" 
+      @change="onChangeSize" 
+      :value="pageSize.toString()"
+      label-text="Items per page"
+    >
+    </base-select>
   </nav>
 </template>
 
