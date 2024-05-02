@@ -1,6 +1,7 @@
 <template>
   <div
-    class="p-5 w-full h-full flex flex-col rounded-md bg-grey"
+    :class="`card_${product.id}`"
+    class="card p-5 w-full h-full flex flex-col rounded-md bg-grey"
   >
     <div
       class="flex flex-col items-center flex-1"
@@ -8,7 +9,6 @@
       <figure class="h-[200px] w-full  mb-5">
         <img class="object-cover h-full w-full rounded-md" v-lazy="thumbnail" alt="" />
       </figure>
-      <h1>{{product.id}}</h1>
       <div>
         <p class="line-clamp-5 text-justify">{{product.description}}</p>
       </div>
