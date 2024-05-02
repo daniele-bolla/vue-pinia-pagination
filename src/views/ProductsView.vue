@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col items-center justify-center h-full"
+    class="flex flex-col h-full"
   >
     <div v-if="getCurrentProducts && getCurrentProducts.length">
       <h1 class="text-4xl font-normal text-center pb-3 mb-5">
@@ -13,7 +13,7 @@
           :product="product"
         ></product-card>
       </div>
-      <div>
+      <div class="mt-24">
         <base-pagination 
           :total-items="total" 
           :page-size="size" 
@@ -23,7 +23,7 @@
         ></base-pagination>
       </div>
     </div>
-    <div v-else>
+    <div v-else class="flex flex-col items-center justify-center h-full">
       ...Loading
     </div>
   </div>

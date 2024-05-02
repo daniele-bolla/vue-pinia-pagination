@@ -6,15 +6,15 @@
       class="flex flex-col items-center flex-1"
     >
       <figure class="h-[200px] w-full  mb-5">
-        <img class="object-cover h-full w-full rounded-md" :src="thumbnail" alt="" />
+        <img class="object-cover h-full w-full rounded-md" v-lazy="thumbnail" alt="" />
       </figure>
       <h1>{{product.id}}</h1>
       <div>
         <p class="line-clamp-5 text-justify">{{product.description}}</p>
       </div>
     </div>
-    <div class="flex justify-end">
-      <span class="text-right">Price £ {{product.price}}</span>
+    <div class="flex justify-end pt-4">
+      <span class="text-right">Price £{{product.price}}</span>
     </div>
   </div>
 </template>

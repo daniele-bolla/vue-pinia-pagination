@@ -2,10 +2,9 @@
   <nav
     class="flex w-full justify-center space-x-6 items-center mt-2"
   >
-  {{currentPage}}
      <base-button
       @click.prevent="onChangePage(currentPage - 1)"
-      v-if="currentPage > 0"
+      v-if="currentPage > 1"
     >
      < Previous
     </base-button> 

@@ -16,7 +16,8 @@
   },
   "dependencies": {
     "pinia": "^2.1.7",
-    "vue": "^3.4.21"
+    "vue": "^3.4.21",
+    "vue3-lazyload": "^0.3.8"
   },
   "devDependencies": {
     "@playwright/test": "^1.43.0",
