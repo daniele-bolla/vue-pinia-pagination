@@ -15,10 +15,6 @@ export const useProductsStore = defineStore('products', () => {
   const size = ref<number>(0)
   const currentPage = ref<number>(1)
 
-  function getProducts(key: string) {
-    return products.value.get(key)
-  }
-
   const getCurrentProducts = computed(() => {
     const key = `page-${currentPage.value}`
     return products.value.get(key)
@@ -33,6 +29,7 @@ export const useProductsStore = defineStore('products', () => {
       skip: 0,
       limit: pageSize
     })
+
     products.value.set(key, data.products)
     total.value = data.total
     size.value = pageSize
@@ -59,7 +56,6 @@ export const useProductsStore = defineStore('products', () => {
     currentPage,
     getCurrentProducts,
     setProducts,
-    getProducts,
     setNextProducts
   }
 })

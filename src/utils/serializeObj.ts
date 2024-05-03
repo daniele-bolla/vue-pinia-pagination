@@ -1,4 +1,4 @@
-function objValAsString(obj: Record<any, any>) {
+function propsToString(obj: Record<any, any>) {
   return Object.keys(obj).reduce(
     (a, k: string) => {
       a[k] = `${obj[k]}`
@@ -8,5 +8,5 @@ function objValAsString(obj: Record<any, any>) {
   )
 }
 export function serializeObj(obj: Record<any, any>) {
-  return new URLSearchParams(objValAsString(obj))
+  return new URLSearchParams(propsToString(obj))
 }

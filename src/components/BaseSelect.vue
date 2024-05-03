@@ -34,28 +34,27 @@ export default defineComponent({
   props: {
     choices: {
       type: Array as PropType<Choice[]>,
-      default: () => [],
+      required:true
     },
     id: {
       type: String,
-      default: () => "",
+      required:true
     },
     value: {
-      type: [String, Object] as PropType<string | Choice>,
-      default: () => undefined,
+      type: [String, Number],
+      required:true    
     },
     labelText: {
       type: String,
-      default: "",
+      default:()=> "",
     },
     description: {
       type: String,
-      default: "",
+      default: ()=> "",
     },
   },
   emits: ['change'],
   setup(props, { emit }) {
-
     return {
       handleChange(event: Event): void {
         const value = (event.target as HTMLSelectElement).value;
