@@ -1,10 +1,8 @@
 /* eslint-env node */
 require('@rushstack/eslint-patch/modern-module-resolution')
-const pluginVueA11y = require('eslint-plugin-vuejs-accessibility')
 
 module.exports = {
   root: true,
-  ...pluginVueA11y.configs['flat/recommended'],
   extends: [
     'plugin:vue/vue3-essential',
     'eslint:recommended',

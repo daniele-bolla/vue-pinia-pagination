@@ -6,7 +6,6 @@ import axios, {
   AxiosError
 } from 'axios'
 
-            
 const baseURL = 'https://dummyjson.com'
 
 const config: AxiosRequestConfig = {
