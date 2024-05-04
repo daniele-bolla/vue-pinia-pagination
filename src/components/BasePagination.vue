@@ -1,5 +1,6 @@
 <template>
-  <nav class="flex w-full justify-center space-x-6 items-center mt-2">
+  <div class="flex justify-center w-full mt-4">
+    <nav class="flex  space-x-6 items-center ">
     <base-button
       class="btn_page_prev"
       @click.prevent="onChangePage(currentPage - 1)"
@@ -55,7 +56,10 @@
     >
       Next &rangle; 
     </base-button>
-    <base-select
+
+  </nav>
+  <base-select
+      class="ml-24"
       id="item_per_page"
       :choices="pageSizes"
       @change="onChangeSize"
@@ -63,7 +67,8 @@
       label-text="Items per page"
     >
     </base-select>
-  </nav>
+  </div>
+
 </template>
 
 <script lang="ts">
