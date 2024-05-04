@@ -95,8 +95,11 @@ export default defineComponent({
   setup(props, { emit }) {
     const pageCount = computed(() => Math.ceil(props.totalItems / props.pageSize))
     const pageSizes = computed(() => {
-      return Array.from({ length: 26 - 5 }, (_, i) => ({ value: 5 + i, label: (5 + i).toString() }))
-    })
+       return Array.from({ length: 30 }, (_, i) => ({ value: 1 + i, label: (1 + i).toString() }))
+     })
+    // const pageSizes = computed(() => {
+    //   return Array.from({ length: 26 - 5 }, (_, i) => ({ value: 5 + i, label: (5 + i).toString() }))
+    // })
     // const pages = computed(() => {
     //   return Array.from({ length: pageCount.value }, (_, i) => {i+1});
     // });
@@ -106,8 +109,16 @@ export default defineComponent({
       onChangePage(n: number): void {
         emit('changePage', n)
       },
-      onChangeSize(size: number) {
-        emit('changeSize', size)
+      onChangeSize(s: number) {
+        if(s>25){
+          console.warn("pageSize > 25")
+          emit('changeSize', 25)
+        } else if(s<5){
+          console.warn("pageSize < 5")
+          emit('changeSize', 5)
+        } else {
+          emit('changeSize', s)
+        }
       },
       pageCount
     }
