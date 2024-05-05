@@ -21,10 +21,9 @@ test('visits the app root url', async ({ page }) => {
 test('Loads and shows correctly first page of products', async ({ page }) => {
   const count = await page.locator('div.card').count()
   const activePageEL = page.locator('button.btn_page_active')
-  const acitvePage = await activePageEL.innerText()
   expect(count).toBe(5)
   await expect(activePageEL).toHaveClass(/bg-grey-dark/)
-  expect(acitvePage).toBe('1')
+  await expect(page.locator('button.btn_page_active')).toHaveText('1')
   await expect(page.locator('button.btn_page_first')).toBeHidden()
   await expect(page.locator('button.btn_page_prev')).toBeHidden()
   await expect(page.locator('button.btn_page_last')).toBeVisible()
@@ -38,7 +37,7 @@ test('Changes size correctly', async ({ page }) => {
 
   const activePageEL = page.locator('button.btn_page_active')
   await expect(activePageEL).toHaveClass(/bg-grey-dark/)
-  await expect(activePageEL).toHaveText('1')
+  await expect(page.locator('button.btn_page_active')).toHaveText('1')
   expect(await page.locator('div.card').count()).toBe(13)
 })
 
@@ -49,9 +48,8 @@ test('Changes page correctly', async ({ page }) => {
 
   const cards = page.locator('div.card')
   const count = await cards.count()
-  const activePageEL = page.locator('button.btn_page_active')
   expect(count).toBe(5)
-  await expect(activePageEL).toHaveText('3')
+  await expect(page.locator('button.btn_page_active')).toHaveText('3')
 })
 
 test('Changes size and page correctly', async ({ page }) => {
@@ -87,11 +85,10 @@ test('Changes page and size correctly', async ({ page }) => {
   const cards = page.locator('div.card')
   const firstCard = cards.first()
   const lastCard = cards.last()
-  const activePageEL = page.locator('button.btn_page_active')
 
   await expect(firstCard).toHaveClass(/card_1/)
   await expect(lastCard).toHaveClass(/card_13/)
-  await expect(activePageEL).toHaveText('1')
+  await expect(page.locator('button.btn_page_active')).toHaveText('1')
 })
 
 test('Changes to last page correctly', async ({ page }) => {
